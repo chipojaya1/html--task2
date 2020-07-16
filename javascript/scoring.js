@@ -60,21 +60,23 @@ $(document).ready(function(){
     let judge = "pass";
     // 入力したそれぞれの教科の点数が60点よりも低いと変数「judge」に"不合格"を再代入して「judge」を返します。
     // ヒント! 「javascript 点数 合格 不合格 ロジック」で検索してみてください。
-      for (let i= 0; i < number; i++){
-          if (subject_points[i] < 60){
-            judge = "fail"} <br>;
+    for(let i=0; i<subject_points.lenth; i++){
+        if(subject_points[i]<60){
+          judge = "failure" ;
+           break ;
         }
-    return judge;
+      }
+        return pass_or_failure
 };
   // 最終的なジャッジのロジックを作ります。
-  function judgement(){
+  function judgement(subject_points){
     // 変数「achievement」に「get_achievement()の戻り値」を代入します。
-    let achievement = get_achievement();
+    let achievement = get_achievement(subject_points);
     // 変数「pass_or_failure」に「get_pass_or_failure()の戻り値」を代入します。
-    let pass_or_failure = get_pass_or_failure();
+    let pass_or_failure = get_pass_or_failure(subject_points);
     // 「最終ジャッジ」(id="alert-indicate)ボタンを押したら「あなたの成績は${achievement}で${pass_or_failure}です」が出力される処理です。
-    $('#declaration').append(`<label id="alert-indicate" class="alert alert-info">Your grade is${achievement}It is a${pass_or_failure}</label>`);
-  };
+    $('#declaration').append(`<label id="alert-indicate" class="alert alert-info"> Your grade is ${achievement}. It is a ${pass_or_failure}</label>`);
+};
   // [国語の点数,英語の点数,数学の点数,理科の点数,社会の点数]のいずれかの点数が変更された際に「function score_indicate()」を発火させる処理です。
   $('#national_language, #english, #mathematics, #science, #society').change(function() {
     score_indicate();
@@ -91,6 +93,7 @@ $(document).ready(function(){
   $('#btn-declaration').click(function() {
     $("#declaration").text(judgement());
   });
+  console.log(judgement(subject_points))
 });
 // ここに書かれているjsの記述はあくまでヒントとして用意された雛形なので、書かれている記述に従わずに実装したいという場合は、自分の好きに実装して構わない。課題要件を満たし、コードの品質が一定の水準にあると判定されればどのような実装でも合格になる。
 // 例ではJavaScriptとjQueryの両方の記述を使用しているが、どちらかに統一しても構いません。
