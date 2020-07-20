@@ -9,37 +9,19 @@ body {
   padding-bottom: 15%;
   width: 100%;
   background-size: cover;
-  background-image: url("vendors/images/header.jpg");
+  background-image: url("../images/header.jpg");
   background-attachment: fixed;
-  margin: 0;
 }
 header {
   background-color:#696969 ;
-  min-height: 100%;
-  font-size: 1.5rem;
 }
 header li {
   list-style: none;
-  text-decoration: none;
-  float: left;
-  width: auto;
   word-spacing: 2rem;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  text-align: center;
-  color:#fff;
-  font-weight: normal;
 }
-.left {
-  float: left;
-}
-.right {
-  float: right;
-  }
 header ul {
-  padding: 20px 10px;
-  margin-bottom: -20px;
-  text-decoration: none;
+  padding: 0;
+  margin: 0;
 }
 header ul a {
   color: #fff;
@@ -49,13 +31,18 @@ header ul a {
   font-size: normal;
   padding: 15px;
 }
+.left {
+  float: left;
+  margin: 20px;
+}
+.right {
+  float: right;
+  margin: 20px;
+}
 .main-header img {
-  width: auto;
-  background-attachment: fixed;
   padding-top: 150px;
   background-size: cover;
-  width: auto;
-  float: center;
+  width: 200px;
   }
 .about h1 {
   margin: 50px;
@@ -86,15 +73,24 @@ header ul a {
   padding: 20px 15px;
   margin: 0;
   width: 200px;
+  height: 150px;
+  display: block;
 }
 footer {
   position: relative;
   background-color: #2F4F4F ;
   text-align: center;
-  padding-top: 20px;
-  padding-bottom: 10px;
   color: #fff;
   font-size: small;
+  width: 100%;
+  height: 60px;
+  display: block;
+  bottom: 0;
+}
+footer p {
+  font-size: 0.5rem;
+  padding-top:10px;
+  padding-bottom: 5px;
 }
 header ul:after {
   content: "";
