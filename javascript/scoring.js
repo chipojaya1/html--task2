@@ -18,6 +18,9 @@ $(document).ready(function(){
     sum = sum + subject_points[2];
     sum = sum + subject_points[3];
     sum = sum + subject_points[4];
+    // another way to calculate sum is as follows:
+    // the let sum =subject_points. the reduce(function( sum, subject_points) {return sum + subject_points;}, 0);
+
     // 「合計点：」(class="sum_indicate")に変数「sum」(合計点)を出力させます。
     $("#sum_indicate").text(sum);
     // 変数「average」に
@@ -60,20 +63,21 @@ $(document).ready(function(){
     let judge = "pass";
     // 入力したそれぞれの教科の点数が60点よりも低いと変数「judge」に"不合格"を再代入して「judge」を返します。
     // ヒント! 「javascript 点数 合格 不合格 ロジック」で検索してみてください。
-    for(let i=0; i<subject_points.lenth; i++){
-        if(subject_points[i]<60){
+    for (let i=0; i<number; i++){
+        if (subject_points[i]<60){
           judge = "failure" ;
            break ;
         }
-      }
-        return pass_or_failure
+    }
+        return judge;
+    //return pass_or_failure;
 };
   // 最終的なジャッジのロジックを作ります。
-  function judgement(subject_points){
+  function judgement(){
     // 変数「achievement」に「get_achievement()の戻り値」を代入します。
-    let achievement = get_achievement(subject_points);
+    let achievement = get_achievement();
     // 変数「pass_or_failure」に「get_pass_or_failure()の戻り値」を代入します。
-    let pass_or_failure = get_pass_or_failure(subject_points);
+    let pass_or_failure = get_pass_or_failure();
     // 「最終ジャッジ」(id="alert-indicate)ボタンを押したら「あなたの成績は${achievement}で${pass_or_failure}です」が出力される処理です。
     $('#declaration').append(`<label id="alert-indicate" class="alert alert-info"> Your grade is ${achievement}. It is a ${pass_or_failure}</label>`);
 };
@@ -91,9 +95,9 @@ $(document).ready(function(){
   });
   // 「最終ジャッジ」(class="btn-declaration")ボタンを押したら「function judgement()」が出力される処理です。
   $('#btn-declaration').click(function() {
+    $("#alert-indicate").remove();
     $("#declaration").text(judgement());
   });
-  console.log(judgement(subject_points))
 });
 // ここに書かれているjsの記述はあくまでヒントとして用意された雛形なので、書かれている記述に従わずに実装したいという場合は、自分の好きに実装して構わない。課題要件を満たし、コードの品質が一定の水準にあると判定されればどのような実装でも合格になる。
 // 例ではJavaScriptとjQueryの両方の記述を使用しているが、どちらかに統一しても構いません。
